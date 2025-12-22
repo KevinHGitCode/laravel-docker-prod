@@ -45,6 +45,10 @@ RUN if [ "$BUILD_ENV" = "production" ]; then \
 # Instalar dependencias de Node y compilar assets con Vite
 RUN npm install && npm run build && rm -rf node_modules
 
+# Publicar assets de Livewire y Flux
+RUN php artisan livewire:publish --assets
+# && php artisan flux:publish 
+
 # Configurar supervisor para queue workers
 RUN mkdir -p /var/log/supervisor
 
