@@ -49,7 +49,7 @@ docker-compose restart
 
 ### Estructura de carpetas
 ```
-proyecto-laravel/
+laravel-docker-prod/
 ├── docker/
 │   ├── nginx/
 │   │   ├── Dockerfile
