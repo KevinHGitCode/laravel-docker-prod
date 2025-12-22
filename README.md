@@ -12,7 +12,7 @@ Es un proyecto generico para desplegar aplicaciones laravel 12 en servidores de 
 ### Clonado
 ```bash
 # 1. Clonar este repositorio
-git clone https://github.com/your-username/laravel-docker-prod.git
+git clone https://github.com/KevinHGitCode/laravel-docker-prod.git
 
 # 2. Entrar en el directorio del proyecto
 cd laravel-docker-prod
