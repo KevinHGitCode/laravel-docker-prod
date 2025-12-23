@@ -38,6 +38,9 @@ docker-compose up -d --build
 # 2. Ejecutar migraciones (primera vez)
 docker-compose exec app php artisan migrate --force
 
+# 2.1 Ejecutar seeders (si es necesario)
+docker-compose exec app php artisan db:seed --force
+
 # 3. Ver logs
 docker-compose logs -f
 
