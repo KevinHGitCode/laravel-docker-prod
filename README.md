@@ -81,3 +81,18 @@ laravel-docker-prod/
 - Puedes personalizar la configuración de Nginx y PHP modificando los archivos en la carpeta `docker/nginx` y `docker/php` respectivamente.
 - Recuerda ejecutar las migraciones con `--force` en producción para evitar confirmaciones interactivas.
 - Este proyecto está diseñado para entornos de producción, asegúrate de seguir las mejores prácticas de seguridad y optimización para Laravel y Docker.
+
+
+---
+
+### Probar la conexion mysql desde el contenedor app
+
+```bash
+# Ejecuta
+docker compose exec mysql mysql -u root -p
+
+# Escribe el password
+# Si todo esta bien deberia ver:
+# Welcome to the MySQL monitor.
+# mysql>
+```
