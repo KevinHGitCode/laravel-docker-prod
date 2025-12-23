@@ -76,6 +76,7 @@ laravel-docker-prod/
 
 ### Notas
 - Asegúrate de configurar correctamente el archivo `.env` tanto para Laravel como para Docker Compose.
+- Los parámetros DB_DATABASE, DB_USERNAME y DB_PASSWORD en el archivo `.env` raíz (para Docker Compose) deben coincidir con los del archivo `src/.env` (para Laravel) para asegurar la conexión a la base de datos.
 - El contenedor de MySQL almacena los datos en la carpeta `mysql-data` para persistencia.
 - Puedes personalizar la configuración de Nginx y PHP modificando los archivos en la carpeta `docker/nginx` y `docker/php` respectivamente.
 - Recuerda ejecutar las migraciones con `--force` en producción para evitar confirmaciones interactivas.
