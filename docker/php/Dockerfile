@@ -13,8 +13,6 @@ RUN apt-get update && apt-get install -y \
     zip \
     unzip \
     supervisor \
-    nodejs \
-    npm \
     && docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip opcache \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
@@ -35,24 +33,17 @@ RUN chown -R www-data:www-data /var/www \
     && chmod -R 755 /var/www/storage \
     && chmod -R 755 /var/www/bootstrap/cache
 
-# Instalar dependencias de Composer (optimizado para producción)
-RUN if [ "$BUILD_ENV" = "production" ]; then \
-        composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist; \
-    else \
-        composer install --optimize-autoloader --no-interaction; \
-    fi
+# Instalar dependencias de Composer sin paquetes de desarrollo
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist; \
 
-# Instalar dependencias de Node y compilar assets con Vite
-RUN npm install && npm run build && rm -rf node_modules
 
-# Publicar assets de Livewire y Flux
+# Publicar assets de Livewire
 RUN php artisan livewire:publish --assets
-# && php artisan flux:publish 
 
-# Configurar supervisor para queue workers
+# Configurar supervisor
 RUN mkdir -p /var/log/supervisor
 
-# Optimizaciones de Laravel para producción
+# Optimizaciones de Laravel
 RUN php artisan config:cache && \
     php artisan route:cache && \
     php artisan view:cache && \

@@ -81,6 +81,7 @@ laravel-docker-prod/
 - Puedes personalizar la configuración de Nginx y PHP modificando los archivos en la carpeta `docker/nginx` y `docker/php` respectivamente.
 - Recuerda ejecutar las migraciones con `--force` en producción para evitar confirmaciones interactivas.
 - Este proyecto está diseñado para entornos de producción, asegúrate de seguir las mejores prácticas de seguridad y optimización para Laravel y Docker.
+- Asegúrate de compilar los assets de Vite usando `npm run build` en el host antes de desplegar en producción.
 
 
 ---
