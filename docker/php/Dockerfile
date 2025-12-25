@@ -28,13 +28,17 @@ WORKDIR /var/www
 # Copiar código fuente
 COPY ./src /var/www
 
-# Configurar permisos
-RUN chown -R www-data:www-data /var/www \
-    && chmod -R 755 /var/www/storage \
-    && chmod -R 755 /var/www/bootstrap/cache
+# Crear directorios si no existen y configurar permisos
+RUN mkdir -p /var/www/storage/framework/views \
+    /var/www/storage/framework/cache \
+    /var/www/storage/framework/sessions \
+    /var/www/storage/logs \
+    /var/www/bootstrap/cache \
+    && chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache \
+    && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 # Instalar dependencias de Composer sin paquetes de desarrollo
-RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist; \
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
 # Configurar supervisor
 RUN mkdir -p /var/log/supervisor

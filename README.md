@@ -41,6 +41,9 @@ docker-compose exec app php artisan migrate --force
 # 2.1 Ejecutar seeders (si es necesario)
 docker-compose exec app php artisan db:seed --force
 
+# 2.2 Crear enlace simbolico de storage (si es necesario)
+docker compose exec app php artisan storage:link
+
 # 3. Ver logs
 docker-compose logs -f
 
@@ -52,6 +55,16 @@ docker-compose restart
 ```bash
 sudo chown -R $USER:$USER src
 sudo chmod -R u+rwX src
+```
+
+### Problema de permisos. Ejecuta:
+```bash
+# Arreglar permisos
+docker-compose exec app chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+docker-compose exec app chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+
+# Reiniciar
+docker-compose restart app nginx
 ```
 
 ---
