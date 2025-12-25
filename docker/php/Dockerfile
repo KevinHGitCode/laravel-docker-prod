@@ -36,10 +36,6 @@ RUN chown -R www-data:www-data /var/www \
 # Instalar dependencias de Composer sin paquetes de desarrollo
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist; \
 
-
-# Publicar assets de Livewire
-RUN php artisan livewire:publish --assets
-
 # Configurar supervisor
 RUN mkdir -p /var/log/supervisor
 

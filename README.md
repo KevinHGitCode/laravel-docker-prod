@@ -74,6 +74,16 @@ laravel-docker-prod/
 
 ---
 
+### Publicar componentes de Livewire y Flux en el host
+```bash
+# Publicar componentes de Livewire
+php artisan livewire:publish --assets
+
+# Publicar componentes de Flux
+php artisan flux:publish --assets
+```
+
+
 ### Notas
 - Asegúrate de configurar correctamente el archivo `.env` tanto para Laravel como para Docker Compose.
 - Los parámetros DB_DATABASE, DB_USERNAME y DB_PASSWORD en el archivo `.env` raíz (para Docker Compose) deben coincidir con los del archivo `src/.env` (para Laravel) para asegurar la conexión a la base de datos.
