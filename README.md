@@ -51,10 +51,9 @@ docker-compose logs -f
 docker-compose restart
 ```
 
-### Permisos
+### Agregar al archivo hosts
 ```bash
-sudo chown -R $USER:$USER src
-sudo chmod -R u+rwX src
+sudo nano /etc/hosts
 ```
 
 ### Problema de permisos. Ejecuta:
