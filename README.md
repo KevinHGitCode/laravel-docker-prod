@@ -48,6 +48,12 @@ docker-compose logs -f
 docker-compose restart
 ```
 
+### Permisos
+```bash
+sudo chown -R $USER:$USER src
+sudo chmod -R u+rwX src
+```
+
 ---
 
 ### Estructura de carpetas
