@@ -1,3 +1,5 @@
 mysql-data/*
 !mysql-data/.gitkeep
 src
+# Variables de Docker Compose: copia .env.example a .env
+.env

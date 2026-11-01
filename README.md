@@ -30,6 +30,14 @@ rmdir /s /q src\.git
 
 ---
 
+### Variables de entorno
+```bash
+# El .env raíz no se versiona: créalo desde la plantilla y cambia la contraseña
+cp .env.example .env
+```
+
+---
+
 ### Comandos para desplegar
 ```bash
 # 1. Construir y levantar contenedores
